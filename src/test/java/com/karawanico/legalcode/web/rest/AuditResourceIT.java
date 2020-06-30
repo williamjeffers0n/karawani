@@ -1,22 +1,16 @@
 package com.karawanico.legalcode.web.rest;
 
 import com.karawanico.legalcode.LegalcodeApp;
-import io.github.jhipster.config.JHipsterProperties;
-import com.karawanico.legalcode.config.audit.AuditEventConverter;
 import com.karawanico.legalcode.domain.PersistentAuditEvent;
 import com.karawanico.legalcode.repository.PersistenceAuditEventRepository;
 import com.karawanico.legalcode.security.AuthoritiesConstants;
 
-import com.karawanico.legalcode.service.AuditEventService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
-import org.springframework.format.support.FormattingConversionService;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -126,7 +120,6 @@ public class AuditResourceIT {
     }
 
     @Test
-    @Transactional
     public void testPersistentAuditEventEquals() throws Exception {
         TestUtil.equalsVerifier(PersistentAuditEvent.class);
         PersistentAuditEvent auditEvent1 = new PersistentAuditEvent();

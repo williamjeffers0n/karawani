@@ -23,9 +23,9 @@ import { ErrorComponent } from './layouts/error/error.component';
     LegalcodeHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     LegalcodeEntityModule,
-    LegalcodeAppRoutingModule
+    LegalcodeAppRoutingModule,
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
 })
 export class LegalcodeAppModule {}

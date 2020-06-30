@@ -22,7 +22,7 @@ describe('Component Tests', () => {
       TestBed.configureTestingModule({
         imports: [LegalcodeTestModule, TranslateModule.forRoot()],
         declarations: [MainComponent],
-        providers: [Title, FindLanguageFromKeyPipe]
+        providers: [Title, FindLanguageFromKeyPipe],
       })
         .overrideTemplate(MainComponent, '')
         .compileComponents();

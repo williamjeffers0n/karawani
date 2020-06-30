@@ -1,6 +1,7 @@
 package com.karawanico.legalcode.repository;
 
 import com.karawanico.legalcode.LegalcodeApp;
+
 import com.karawanico.legalcode.config.Constants;
 import com.karawanico.legalcode.config.audit.AuditEventConverter;
 import com.karawanico.legalcode.domain.PersistentAuditEvent;

@@ -1,4 +1,4 @@
-<jhi-page-ribbon></jhi-page-ribbon>
+<!-- <jhi-page-ribbon></jhi-page-ribbon>
 
 <div>
     <router-outlet name="navbar"></router-outlet>
@@ -10,4 +10,21 @@
     </div>
 
     <jhi-footer></jhi-footer>
+</div> -->
+
+
+<!-- <jhi-page-ribbon></jhi-page-ribbon> -->
+<div>
+    <jhi-navbar (toggleBtnLeftMenuEvent)="toggleBtnLeftMenuEvent($event)" [leftMenuHidden]="leftMenuHidden"></jhi-navbar>
 </div>
+<div class="main-wrapper"  [ngSwitch]="isAuthenticated()">
+    <jhi-left-side-menu *ngSwitchCase="true" [leftMenuHidden]="leftMenuHidden"  class="sidemenu"></jhi-left-side-menu>
+
+    <div class="container-fluid">
+      <div class="card jh-card">
+          <router-outlet></router-outlet>
+          <router-outlet name="popup"></router-outlet>
+      </div>
+    </div>
+</div>
+<jhi-footer></jhi-footer>

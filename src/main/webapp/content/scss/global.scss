@@ -193,3 +193,166 @@ ui bootstrap tweaks
 }
 
 /* jhipster-needle-scss-add-main JHipster will add new css style */
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.sidemenu {
+  background: #3e8acc;
+}
+
+.main-wrapper {
+  display: flex;
+  align-items: stretch;
+  margin-left: 50px;
+}
+.container-fluid,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 45px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#sidebar {
+  color: #fff;
+  transition: all 0.3s;
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #3e8acc;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+#sidebar.active {
+  /* margin-left: -210px; */
+  min-width: 50px;
+  width: 50px !important;
+}
+
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: #3e8acc;
+}
+
+#sidebar ul.components {
+  padding: 40px 0px 20px 0px;
+  border-bottom: 1px solid #495059;
+}
+
+#sidebar ul p {
+  color: #fff;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1em;
+  display: block;
+  height: 38px;
+  color: white;
+}
+
+#sidebar ul li a:hover {
+  color: #495059;
+  background: #fff;
+}
+#sidebar ul li.active>a,/* a[aria-expanded="true"] {
+    color: #fff;
+    background: #353d47;
+} */
+/*
+a[data-toggle="collapse"] {
+    position: relative;
+} */
+/* a[aria-expanded="false"]::before,
+a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+
+a[aria-expanded="true"]::before {
+    content: '\e260';
+} */
+/* ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #353d47;
+} */
+ul.CTAs {
+  padding: 20px;
+}
+
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+/*
+a.download {
+    background: #fff;
+    color: #495059;
+}
+
+a.article,
+a.article:hover {
+    background: #353d47 !important;
+    color: #fff !important;
+} */
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+/* #content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+} */
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+
+  #sidebar.active {
+    margin-left: 0;
+  }
+
+  #sidebarCollapse span {
+    display: none;
+  }
+}
+
+#sidebar.active li > a > i {
+  float: center;
+}
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+
+.no-pointer {
+  pointer-events: none;
+}
+.footer {
+  background-color: #fafafa;
+  text-align: center;
+  height: 30px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

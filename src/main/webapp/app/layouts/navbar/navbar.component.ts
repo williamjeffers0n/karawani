@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { JhiLanguageService } from 'ng-jhipster';
 import { SessionStorageService } from 'ngx-webstorage';
@@ -21,6 +21,8 @@ export class NavbarComponent implements OnInit {
   languages = LANGUAGES;
   swaggerEnabled?: boolean;
   version: string;
+  @Input() leftMenuHidden: boolean | undefined;
+  @Output() toggleBtnLeftMenuEvent = new EventEmitter<boolean>();
 
   constructor(
     private loginService: LoginService,
@@ -61,11 +63,16 @@ export class NavbarComponent implements OnInit {
   logout(): void {
     this.collapseNavbar();
     this.loginService.logout();
-    this.router.navigate(['']);
+    this.router.navigate(['/login']);
   }
 
   toggleNavbar(): void {
     this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
+  toggleLeftMenu(): void {
+    this.leftMenuHidden = !this.leftMenuHidden;
+    this.toggleBtnLeftMenuEvent.emit(this.leftMenuHidden);
   }
 
   getImageUrl(): string {

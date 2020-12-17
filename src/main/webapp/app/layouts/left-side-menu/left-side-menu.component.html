@@ -1,0 +1,40 @@
+<!-- Sidebar Holder -->
+<nav id="sidebar" [class.active]="leftMenuHidden" (mouseover)="toggleBtnMouseIn()" (mouseout)="toggleBtnMouseOut()">
+
+  <ul class="list-unstyled components">
+
+      <li>
+          <a href="javascript:;"  routerLink="home" routerLinkActive="active" >
+              <fa-icon icon="home"></fa-icon>
+              <span  class="no-pointer"  *ngIf="!leftMenuHidden">&nbsp;Home</span>
+          </a>
+      </li>
+      <li >
+          <a routerLink="admin/user-management" routerLinkActive="active" >
+              <fa-icon icon="user"></fa-icon>
+              <span class="no-pointer"  *ngIf="!leftMenuHidden">&nbsp; Users</span>
+          </a>
+      </li>
+      <li *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']">
+          <a routerLink="admin/dashboard" routerLinkActive="active" >
+              <fa-icon icon="list"></fa-icon>
+              <span class="no-pointer" *ngIf="!leftMenuHidden">&nbsp;Admin</span>
+          </a>
+      </li>
+      <li *jhiHasAnyAuthority="['ROLE_ADMIN', 'ROLE_USER']">
+          <a href="#">
+              <fa-icon icon="user"></fa-icon>
+              <span class="no-pointer" *ngIf="!leftMenuHidden">&nbsp;Contact</span>
+          </a>
+      </li>
+  </ul>
+
+  <!-- <ul class="list-unstyled CTAs">
+      <li>
+          <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+      </li>
+      <li>
+          <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+      </li>
+  </ul> -->
+</nav>

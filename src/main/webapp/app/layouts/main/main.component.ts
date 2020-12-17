@@ -4,7 +4,6 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd, NavigationError } from '
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 import { AccountService } from 'app/core/auth/account.service';
-import { FindLanguageFromKeyPipe } from 'app/shared/language/find-language-from-key.pipe';
 
 @Component({
   selector: 'jhi-main',
@@ -12,16 +11,23 @@ import { FindLanguageFromKeyPipe } from 'app/shared/language/find-language-from-
 })
 export class MainComponent implements OnInit {
   private renderer: Renderer2;
+  leftMenuHidden = true;
 
   constructor(
     private accountService: AccountService,
     private titleService: Title,
     private router: Router,
-    private findLanguageFromKeyPipe: FindLanguageFromKeyPipe,
     private translateService: TranslateService,
     rootRenderer: RendererFactory2
   ) {
     this.renderer = rootRenderer.createRenderer(document.querySelector('html'), null);
+  }
+
+  toggleBtnLeftMenuEvent(event: any): void {
+    this.leftMenuHidden = event;
+  }
+  isAuthenticated(): boolean {
+    return this.accountService.isAuthenticated();
   }
 
   ngOnInit(): void {
@@ -41,8 +47,6 @@ export class MainComponent implements OnInit {
       this.updateTitle();
 
       this.renderer.setAttribute(document.querySelector('html'), 'lang', langChangeEvent.lang);
-
-      this.updatePageDirection();
     });
   }
 
@@ -60,13 +64,5 @@ export class MainComponent implements OnInit {
       pageTitle = 'global.title';
     }
     this.translateService.get(pageTitle).subscribe(title => this.titleService.setTitle(title));
-  }
-
-  private updatePageDirection(): void {
-    this.renderer.setAttribute(
-      document.querySelector('html'),
-      'dir',
-      this.findLanguageFromKeyPipe.isRTL(this.translateService.currentLang) ? 'rtl' : 'ltr'
-    );
   }
 }
